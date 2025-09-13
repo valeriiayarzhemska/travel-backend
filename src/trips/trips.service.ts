@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
 import { CreateTripDto } from './dto/create-trip.dto';
 import { UpdateTripDto } from './dto/update-trip.dto';
 import { Trip } from './entities/trip.entity';
@@ -37,13 +38,13 @@ export class TripsService {
   }
 
   async update(id: number, updateTripDto: UpdateTripDto): Promise<Trip> {
-    await this.findOne(id); // This ensures the trip exists
+    await this.findOne(id);
     await this.tripsRepository.update(id, updateTripDto);
     return this.findOne(id);
   }
 
   async remove(id: number): Promise<{ message: string }> {
-    const trip = await this.findOne(id); // This ensures the trip exists
+    const trip = await this.findOne(id);
     await this.tripsRepository.remove(trip);
     return { message: 'Trip deleted successfully' };
   }

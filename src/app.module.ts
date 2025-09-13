@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TripsModule } from './trips/trips.module';
+import { BucketListModule } from './bucket-list/bucket-list.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { TripsModule } from './trips/trips.module';
     UsersModule,
     AuthModule,
     TripsModule,
+    BucketListModule,
   ],
   controllers: [AppController],
   providers: [AppService],
